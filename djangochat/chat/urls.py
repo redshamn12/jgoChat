@@ -8,3 +8,6 @@ urlpatterns = [
     path('send', views.send, name='send'),
     path('getMessages/<str:room>', views.getMessages, name='getMessages')
 ]
+
+handler404 = 'chat.views.page_not_found'
+handler500 = 'chat.views.server_error'

@@ -33,3 +33,9 @@ def getMessages(request, room):
     room_details = Room.objects.get(name = room)
     messages = Message.objects.filter(room = room_details.id)
     return JsonResponse({"messages":list(messages.values())})
+
+def page_not_found(request, exception):
+    return render(request, '404.html', status=404)
+
+def server_error(request, exception=None):
+    return render(request, '500.html', status=500)
